@@ -1,81 +1,65 @@
 import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.applications import DenseNet121
-from tensorflow.keras.models import Sequential
+from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
-from tensorflow.keras.callbacks import EarlyStopping
+from tensorflow.keras.optimizers import Adam
+import os
 
-# Check if GPU is available
-physical_devices = tf.config.list_physical_devices('GPU')
-if physical_devices:
-    try:
-        tf.config.experimental.set_memory_growth(physical_devices[0], True)
-        print(f"GPUs available: {physical_devices}")
-    except RuntimeError as e:
-        print(e)
-else:
-    print("No GPUs found. Please check your CUDA and cuDNN installation.")
+# Path to your dataset directory
+base_dir = '/home/rushil/data/'  # Update this to your actual path
 
-# Define dataset path
-data_path = '/home/rushil/pythonProjects/WheatDet/data/train'  # Change this to the actual dataset path
-
-# Data Preprocessing and Augmentation
+# Data generators with training/validation split
 train_datagen = ImageDataGenerator(
-    rescale=1./255,
+    rescale=1.0/255.0,
     shear_range=0.2,
     zoom_range=0.2,
     horizontal_flip=True,
-    validation_split=0.2)  # 20% for validation
+    validation_split=0.2  # Use 20% of the data for validation
+)
 
 train_generator = train_datagen.flow_from_directory(
-    data_path,
+    base_dir,
     target_size=(224, 224),
     batch_size=32,
     class_mode='categorical',
-    subset='training')
+    subset='training'  # Set as training data
+)
 
-validation_generator = train_datagen.flow_from_directory(
-    data_path,
+val_generator = train_datagen.flow_from_directory(
+    base_dir,
     target_size=(224, 224),
     batch_size=32,
     class_mode='categorical',
-    subset='validation')
+    subset='validation'  # Set as validation data
+)
 
-num_classes = len(train_generator.class_indices)  # Get the number of classes
+# Load pre-trained DenseNet121 model + higher level layers
+base_model = DenseNet121(weights='imagenet', include_top=False)
 
-# Build the Model using Transfer Learning
-base_model = DenseNet121(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
-base_model.trainable = False  # Freeze base model layers
+# Add global average pooling layer
+x = base_model.output
+x = GlobalAveragePooling2D()(x)
 
-model = Sequential([
-    base_model,
-    GlobalAveragePooling2D(),
-    Dense(128, activation='relu'),
-    Dense(num_classes, activation='softmax')
-])
+# Add fully connected layer and a logistic layer with 3 classes
+predictions = Dense(3, activation='softmax')(x)
 
-model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+# Model to train
+model = Model(inputs=base_model.input, outputs=predictions)
 
-# Train the Model
-early_stopping = EarlyStopping(monitor='val_loss', patience=3, restore_best_weights=True)
+# Freeze all convolutional DenseNet layers
+for layer in base_model.layers:
+    layer.trainable = False
 
-history = model.fit(
+# Compile the model
+model.compile(optimizer=Adam(learning_rate=0.001), loss='categorical_crossentropy', metrics=['accuracy'])
+
+# Train the model
+model.fit(
     train_generator,
-    validation_data=validation_generator,
-    epochs=20,
-    callbacks=[early_stopping])
+    epochs=3,
+    validation_data=val_generator
+)
 
-# Fine-Tune the Model
-base_model.trainable = True
-model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
-
-history_fine = model.fit(
-    train_generator,
-    validation_data=validation_generator,
-    epochs=10,
-    callbacks=[early_stopping])
-
-# Save the Model
-model.save('wheat_disease_model.h5')
-
-print("Model training and saving complete.")
+# Save the trained model
+model.save('wheat_leaf_densenet.h5')
