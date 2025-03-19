@@ -307,3 +307,108 @@ function setupNavigation() {
         overviewContent.style.display = 'none';
     });
 }
+
+// scan-history 
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the navigation items
+    const navItems = document.querySelectorAll('nav ul li');
+    
+    // Get the scan history section
+    const scanHistorySection = document.getElementById('scan-history-section');
+    
+    // Add click event to each nav item
+    navItems.forEach(item => {
+      item.addEventListener('click', function() {
+        // Remove active class from all nav items
+        navItems.forEach(nav => nav.classList.remove('active'));
+        
+        // Add active class to clicked item
+        this.classList.add('active');
+        
+        // Check if Scan History was clicked
+        if (this.textContent.includes('Scan History')) {
+          // Show scan history section
+          scanHistorySection.style.display = 'block';
+          
+          // Hide other sections if needed
+          // You may need to add code here to hide other sections
+        } else {
+          // Hide scan history section
+          scanHistorySection.style.display = 'none';
+        }
+      });
+    });
+  });
+
+
+//   navbar 
+// Add this JavaScript to make the navbar interactive
+document.addEventListener('DOMContentLoaded', function() {
+    // Navbar shrink on scroll
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    menuToggle.addEventListener('click', function() {
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking a link
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+    
+    // Active link highlighting
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            navItems.forEach(link => link.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+});
+
+// navbar end 
+
+
+
+
+// Add to dashboard.js
+const filterButton = document.querySelector('.filter-button');
+filterButton.addEventListener('click', function() {
+    alert('Filter functionality will be implemented here');
+    // In a real implementation, this would show filter options
+});
+
+
+// Add to dashboard.js
+const cards = document.querySelectorAll('.card');
+cards.forEach(card => {
+    card.addEventListener('click', function() {
+        const diseaseTitle = this.querySelector('.card-title').textContent;
+        alert(`Viewing details for ${diseaseTitle}`);
+        // In a real implementation, this would open a detailed view
+    });
+});
+
+// Add to dashboard.js
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', function() {
+    this.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});

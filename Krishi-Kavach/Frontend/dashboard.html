@@ -9,6 +9,26 @@
     <link rel="shortcut icon" href="Krishi.jpg" type="image/x-icon">
 </head>
 <body>
+    <div class="loading-overlay">
+        <div class="loader"></div>
+      </div>
+<!-- navar  -->
+      <nav class="navbar">
+        <div class="logo">
+            <img src="Krishi.jpg" alt="Logo">
+            <span>Krishi-Kavach</span>
+        </div>
+        <div class="menu-toggle">
+            <div class="hamburger"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html" class="nav-item">Home</a></li>
+            <li><a href="analyze.html" class="nav-item active">Analyze</a></li>
+            <li><a href="dashboard.html" class="nav-item">Dashboard</a></li>
+        </ul>
+    </nav>
+    <!-- navbar-end  -->
+      
     <div class="dashboard">
         <header>
             <h1>Dashboard</h1>
@@ -24,9 +44,76 @@
             <ul>
                 <li class="active"><span class="icon">📊</span> Overview</li>
                 <li><span class="icon">🔍</span> Scan History</li>
+                
+
             </ul>
         </nav>
-        
+
+
+
+            <!-- Scan History Section (hidden by default) -->
+        <div class="scan-history-section" id="scan-history-section" style="display: none;">
+            <h2>Scan History</h2>
+            
+            <div class="history-controls">
+              <div class="date-filter">
+                <span class="icon">📅</span>
+                <select id="history-date-filter">
+                  <option value="today">Today</option>
+                  <option value="week">Last 7 days</option>
+                  <option value="month">Last 30 days</option>
+                  <option value="all">No Date Filter</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="history-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Source</th>
+                    <th>Start Date</th>
+                    <th>Duration</th>
+                    <th>Scanned Locations</th>
+                    <th>Match Locations</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="history-item" data-scan-id="scan1">
+                    <td>Late Blight</td>
+                    <td>20-Mar-2025 08:34</td>
+                    <td>2m 15s</td>
+                    <td>28</td>
+                    <td>16</td>
+                    <td><span class="status-complete">Complete</span></td>
+                  </tr>
+                  <tr class="history-item" data-scan-id="scan2">
+                    <td>Powdery Mildew</td>
+                    <td>19-Mar-2025 14:22</td>
+                    <td>1m 45s</td>
+                    <td>14</td>
+                    <td>8</td>
+                    <td><span class="status-complete">Complete</span></td>
+                  </tr>
+                  <tr class="history-item" data-scan-id="scan3">
+                    <td>Leaf Spot</td>
+                    <td>18-Mar-2025 09:15</td>
+                    <td>3m 10s</td>
+                    <td>32</td>
+                    <td>12</td>
+                    <td><span class="status-failed">Failed</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+        <!-- scan-history   -->
+
+
+
+        <!-- scan-hsitory-end   -->
         <div class="stats">
             <div class="stat-box">
                 <h3>Total Scans</h3>
@@ -64,7 +151,55 @@
                 <canvas id="treatmentChart"></canvas>
             </div>
         </div>
+    
+
+
+    <div class="header">
+        <h2>Recent Detections</h2>
+        <a href="#" class="view-all">View All</a>
     </div>
+    
+    <div class="cards-container">
+        <!-- Card 1: Late Blight -->
+        <div class="card">
+            <img src="late-blight.jpg" alt="Late Blight" class="card-image">
+            <div class="card-content">
+                <div class="card-date">3/18/2025</div>
+                <h3 class="card-title">Late Blight</h3>
+                <div class="confidence">
+                    <span class="confidence-level high">High</span>
+                    <span class="confidence-value">92% confidence</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Card 2: Powdery Mildew -->
+        <div class="card">
+            <img src="powdery-mildew.jpg" alt="Powdery Mildew" class="card-image">
+            <div class="card-content">
+                <div class="card-date">3/15/2025</div>
+                <h3 class="card-title">Powdery Mildew</h3>
+                <div class="confidence">
+                    <span class="confidence-level medium">Medium</span>
+                    <span class="confidence-value">88% confidence</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Card 3: Leaf Spot -->
+        <div class="card">
+            <img src="leaf-spot.jpg" alt="Leaf Spot" class="card-image">
+            <div class="card-content">
+                <div class="card-date">3/10/2025</div>
+                <h3 class="card-title">Leaf Spot</h3>
+                <div class="confidence">
+                    <span class="confidence-level low">Low</span>
+                    <span class="confidence-value">76% confidence</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     
     <script src="dashboard.js"></script>
 </body>
