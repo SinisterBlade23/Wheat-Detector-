@@ -1,0 +1,299 @@
+{
+    "crop_diseases": [
+      {
+        "name": "Aphid",
+        "type": "Pest",
+        "symptoms": [
+          "Curling and yellowing of leaves",
+          "Sticky honeydew on plant surfaces",
+          "Stunted plant growth",
+          "Clusters of small insects on new growth"
+        ],
+        "recommended_treatments": [
+          "Spray insecticidal soaps or neem oil",
+          "Apply systemic insecticides for severe infestations",
+          "Use strong jets of water to dislodge aphids"
+        ],
+        "preventive_measures": [
+          "Introduce beneficial insects like ladybugs and lacewings",
+          "Avoid excessive nitrogen fertilization",
+          "Monitor plants regularly for early detection"
+        ]
+      },
+      {
+        "name": "Mite",
+        "type": "Pest",
+        "symptoms": [
+          "Stippling or bronzing of leaves",
+          "Fine webbing on plant surfaces",
+          "Distorted growth and leaf curling",
+          "Tiny moving specks visible with magnification"
+        ],
+        "recommended_treatments": [
+          "Apply miticides specifically labeled for crop use",
+          "Use horticultural oils or insecticidal soaps",
+          "Increase humidity to discourage spider mites"
+        ],
+        "preventive_measures": [
+          "Maintain proper irrigation to prevent water stress",
+          "Regularly wash plants to remove dust that attracts mites",
+          "Introduce predatory mites as biological control"
+        ]
+      },
+      {
+        "name": "Stem Fly",
+        "type": "Pest",
+        "symptoms": [
+          "Wilting of terminal shoots",
+          "Tunneling in stems",
+          "Yellowing of leaves",
+          "Stunted plant growth"
+        ],
+        "recommended_treatments": [
+          "Apply systemic insecticides at early growth stages",
+          "Use seed treatments containing imidacloprid",
+          "Remove and destroy infested plant parts"
+        ],
+        "preventive_measures": [
+          "Practice crop rotation",
+          "Adjust planting dates to avoid peak fly populations",
+          "Use trap crops to divert pests from main crop"
+        ]
+      },
+      {
+        "name": "Black Rust",
+        "alternate_name": "Stem Rust",
+        "symptoms": [
+          "Reddish-brown pustules on stems and leaves",
+          "Pustules turn black as they mature",
+          "Tearing of epidermis around pustules",
+          "Reduced grain filling and yield"
+        ],
+        "recommended_treatments": [
+          "Apply fungicides containing triazoles or strobilurins",
+          "Time applications at first sign of disease",
+          "Remove alternate hosts like barberry plants"
+        ],
+        "preventive_measures": [
+          "Plant resistant varieties",
+          "Early planting to avoid peak infection periods",
+          "Maintain field sanitation by removing crop residues"
+        ]
+      },
+      {
+        "name": "Brown Rust",
+        "alternate_name": "Leaf Rust",
+        "symptoms": [
+          "Small, round, orange-brown pustules on leaves",
+          "Pustules primarily on upper leaf surface",
+          "Premature leaf senescence",
+          "Reduced photosynthetic area"
+        ],
+        "recommended_treatments": [
+          "Apply protective fungicides like mancozeb",
+          "Use systemic fungicides for established infections",
+          "Follow regional disease forecasting systems"
+        ],
+        "preventive_measures": [
+          "Plant resistant varieties",
+          "Avoid dense planting that increases humidity",
+          "Rotate crops to reduce inoculum buildup"
+        ]
+      },
+      {
+        "name": "Yellow Rust",
+        "alternate_name": "Stripe Rust",
+        "symptoms": [
+          "Yellow-orange pustules arranged in stripes along leaf veins",
+          "Early infection can affect entire leaves",
+          "Stunted plants with reduced tillering",
+          "Shriveled grain in severe cases"
+        ],
+        "recommended_treatments": [
+          "Apply fungicides at early disease onset",
+          "Use strobilurin or triazole fungicides",
+          "Follow up with additional applications if conditions favor disease"
+        ],
+        "preventive_measures": [
+          "Plant resistant varieties adapted to local conditions",
+          "Avoid early planting in high-risk areas",
+          "Monitor fields regularly during cool, wet conditions"
+        ]
+      },
+      {
+        "name": "Smut",
+        "types": ["Loose", "Flag"],
+        "symptoms": [
+          "Black, powdery spore masses replacing grain heads (Loose Smut)",
+          "Long, gray-black streaks on leaves and stems (Flag Smut)",
+          "Stunted plants with twisted flag leaves (Flag Smut)",
+          "Complete destruction of grain heads (Loose Smut)"
+        ],
+        "recommended_treatments": [
+          "Use certified, treated seed",
+          "Apply systemic seed treatments containing carboxin or tebuconazole",
+          "No effective treatment once infection is visible"
+        ],
+        "preventive_measures": [
+          "Plant resistant varieties",
+          "Use hot water seed treatment for small seed lots",
+          "Practice crop rotation with non-host crops"
+        ]
+      },
+      {
+        "name": "Common Root Rot",
+        "symptoms": [
+          "Brown to black discoloration of subcrown internodes",
+          "Stunted plants with reduced tillering",
+          "Premature ripening and whiteheads",
+          "Poor stand establishment"
+        ],
+        "recommended_treatments": [
+          "Apply seed treatments containing metalaxyl or thiram",
+          "Improve drainage in affected fields",
+          "Adjust planting depth to promote quick emergence"
+        ],
+        "preventive_measures": [
+          "Rotate with non-cereal crops",
+          "Avoid planting in cold, wet soils",
+          "Use clean, disease-free seed"
+        ]
+      },
+      {
+        "name": "Helminthosporium Leaf Blight",
+        "alternate_name": "Leaf Blight",
+        "symptoms": [
+          "Elongated, brown lesions with yellow halos",
+          "Lesions that merge to form large necrotic areas",
+          "Premature leaf death",
+          "Reduced grain filling"
+        ],
+        "recommended_treatments": [
+          "Apply foliar fungicides containing propiconazole or azoxystrobin",
+          "Time applications to protect flag leaf",
+          "Remove infected crop debris"
+        ],
+        "preventive_measures": [
+          "Plant resistant varieties",
+          "Practice crop rotation",
+          "Ensure balanced fertilization"
+        ]
+      },
+      {
+        "name": "Wheat Blast",
+        "symptoms": [
+          "Bleaching of spikelets on wheat heads",
+          "Gray-brown lesions on leaves with diamond shape",
+          "Shriveled grain or complete sterility",
+          "Dark spots at nodes"
+        ],
+        "recommended_treatments": [
+          "Apply triazole and strobilurin fungicides preventatively",
+          "Remove infected plants",
+          "Follow strict quarantine measures in affected regions"
+        ],
+        "preventive_measures": [
+          "Plant resistant varieties where available",
+          "Adjust planting dates to avoid warm, humid periods",
+          "Practice crop rotation with non-host crops"
+        ]
+      },
+      {
+        "name": "Fusarium Head Blight",
+        "alternate_name": "Scab",
+        "symptoms": [
+          "Premature bleaching of wheat heads",
+          "Pink or orange spore masses on infected spikelets",
+          "Shriveled, chalky white or pink kernels",
+          "Mycotoxin contamination of grain"
+        ],
+        "recommended_treatments": [
+          "Apply triazole fungicides at flowering stage",
+          "Harvest infected fields separately",
+          "Clean grain to remove Fusarium-damaged kernels"
+        ],
+        "preventive_measures": [
+          "Plant moderately resistant varieties",
+          "Rotate with non-host crops like soybeans",
+          "Minimize crop residue through tillage in high-risk areas"
+        ]
+      },
+      {
+        "name": "Septoria Leaf Blotch",
+        "symptoms": [
+          "Irregular brown lesions with yellow margins",
+          "Black pycnidia (fruiting bodies) visible within lesions",
+          "Lesions that coalesce to form large necrotic areas",
+          "Progression from lower to upper leaves"
+        ],
+        "recommended_treatments": [
+          "Apply fungicides containing chlorothalonil or azoxystrobin",
+          "Time applications to protect flag leaf",
+          "Use multiple fungicide modes of action to prevent resistance"
+        ],
+        "preventive_measures": [
+          "Plant resistant varieties",
+          "Reduce crop residue through rotation or tillage",
+          "Avoid early planting in areas with high disease pressure"
+        ]
+      },
+      {
+        "name": "Spot Blotch",
+        "symptoms": [
+          "Dark brown, oval lesions on leaves",
+          "Lesions with yellow halos that expand and merge",
+          "Brown discoloration of nodes and internodes",
+          "Reduced grain weight and quality"
+        ],
+        "recommended_treatments": [
+          "Apply foliar fungicides like propiconazole or tebuconazole",
+          "Time applications at early disease onset",
+          "Follow up with additional applications in conducive conditions"
+        ],
+        "preventive_measures": [
+          "Plant resistant varieties",
+          "Practice crop rotation with non-cereals",
+          "Ensure balanced fertilization, especially potassium"
+        ]
+      },
+      {
+        "name": "Tan Spot",
+        "symptoms": [
+          "Small, dark brown spots that expand into tan lesions",
+          "Distinctive yellow halos around lesions",
+          "Diamond-shaped lesions on susceptible varieties",
+          "Coalescence of lesions under favorable conditions"
+        ],
+        "recommended_treatments": [
+          "Apply fungicides containing strobilurins or triazoles",
+          "Time applications to protect upper leaves",
+          "Remove or bury crop residue"
+        ],
+        "preventive_measures": [
+          "Plant resistant varieties",
+          "Rotate with non-host crops",
+          "Practice tillage in high-risk situations"
+        ]
+      },
+      {
+        "name": "Powdery Mildew",
+        "symptoms": [
+          "White, powdery fungal growth on leaf surfaces",
+          "Yellowing beneath fungal colonies",
+          "Reduced photosynthetic area",
+          "Premature senescence of infected leaves"
+        ],
+        "recommended_treatments": [
+          "Apply sulfur-based fungicides or triazoles",
+          "Use systemic fungicides for established infections",
+          "Improve air circulation by avoiding dense planting"
+        ],
+        "preventive_measures": [
+          "Plant resistant varieties",
+          "Avoid excessive nitrogen fertilization",
+          "Rotate crops to reduce inoculum levels"
+        ]
+      }
+    ]
+  }
+  
