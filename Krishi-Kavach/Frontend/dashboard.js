@@ -1,8 +1,30 @@
-document.addEventListener('DOMContentLoaded', function () {
-    if (document.getElementById('diseaseTrendChart')) {
-        createCharts();
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    createCharts();
+    enableSmoothScrolling();
 });
+
+function enableSmoothScrolling() {
+    // Add smooth scrolling to all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+    
+    // Make page transitions smoother
+    document.querySelectorAll('.stat-box, .chart').forEach(element => {
+        element.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+        });
+        
+        element.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+}
 
 function createCharts() {
     // Disease Trend Chart (Line Chart)
@@ -11,84 +33,40 @@ function createCharts() {
         new Chart(ctx1, {
             type: 'line',
             data: {
-                labels: ['Mar 13', 'Mar 14', 'Mar 15', 'Mar 16', 'Mar 17', 'Mar 18'],
+                labels: ['Mar 13', 'Mar 14', 'Mar 15', 'Mar 16', 'Mar 17', 'Mar 18', 'Mar 19'],
                 datasets: [
                     {
                         label: 'Late Blight',
-                        data: [2, 3, 5, 2, 4, 1],
-                        borderColor: 'green',
-                        borderWidth: 2,
+                        data: [2, 1, 2, 5, 4, 3, 3],
+                        borderColor: '#4caf50',
+                        backgroundColor: 'rgba(76, 175, 80, 0.1)',
+                        borderWidth: 3,
                         pointRadius: 4,
-                        fill: false
+                        pointBackgroundColor: '#4caf50',
+                        fill: false,
+                        tension: 0.4
                     },
                     {
                         label: 'Powdery Mildew',
-                        data: [1, 4, 2, 6, 3, 5],
-                        borderColor: 'blue',
-                        borderWidth: 2,
+                        data: [3, 3, 2, 4, 6, 5, 1],
+                        borderColor: '#2196f3',
+                        backgroundColor: 'rgba(33, 150, 243, 0.1)',
+                        borderWidth: 3,
                         pointRadius: 4,
-                        fill: false
+                        pointBackgroundColor: '#2196f3',
+                        fill: false,
+                        tension: 0.4
                     },
                     {
                         label: 'Leaf Spot',
-                        data: [3, 2, 4, 3, 2, 4],
-                        borderColor: 'orange',
-                        borderWidth: 2,
+                        data: [3, 2, 1, 0, 2, 3, 3],
+                        borderColor: '#ff9800',
+                        backgroundColor: 'rgba(255, 152, 0, 0.1)',
+                        borderWidth: 3,
                         pointRadius: 4,
-                        fill: false
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    }
-
-    // Severity Distribution Chart (Doughnut Chart)
-    const ctx2 = document.getElementById('severityChart')?.getContext('2d');
-    if (ctx2) {
-        new Chart(ctx2, {
-            type: 'doughnut',
-            data: {
-                labels: ['High', 'Medium', 'Low'],
-                datasets: [
-                    {
-                        data: [45, 35, 20],
-                        backgroundColor: ['red', 'orange', 'green']
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'right'
-                    }
-                }
-            }
-        });
-    }
-
-    // Treatment Effectiveness Chart (Bar Chart)
-    const ctx3 = document.getElementById('treatmentChart')?.getContext('2d');
-    if (ctx3) {
-        new Chart(ctx3, {
-            type: 'bar',
-            data: {
-                labels: ['Fungicide', 'Organic', 'Cultural', 'Biological'],
-                datasets: [
-                    {
-                        label: 'Effectiveness (%)',
-                        data: [75, 50, 60, 40],
-                        backgroundColor: ['green', 'lightgreen', 'yellowgreen', 'darkgreen']
+                        pointBackgroundColor: '#ff9800',
+                        fill: false,
+                        tension: 0.4
                     }
                 ]
             },
@@ -98,12 +76,234 @@ function createCharts() {
                 scales: {
                     y: {
                         beginAtZero: true,
-                        max: 100
+                        max: 8,
+                        ticks: {
+                            stepSize: 2,
+                            font: {
+                                size: 12
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        },
+                        ticks: {
+                            font: {
+                                size: 12
+                            }
+                        }
                     }
+                },
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            usePointStyle: true,
+                            boxWidth: 6,
+                            padding: 15,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        padding: 10,
+                        cornerRadius: 6,
+                        titleFont: {
+                            size: 14
+                        },
+                        bodyFont: {
+                            size: 13
+                        }
+                    }
+                },
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
+                animation: {
+                    duration: 1000,
+                    easing: 'easeOutQuart'
+                }
+            }
+        });
+    }
+
+    // Severity Distribution Chart (Doughnut Chart)
+    const ctx2 = document.getElementById('severityChart')?.getContext('2d');
+    if (ctx2) {
+        const severityColors = ['#ff9800', '#4caf50', '#ff5252'];
+        const severityLabels = ['High', 'Medium', 'Low'];
+        const severityData = [45, 35, 20];
+        
+        new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: severityLabels,
+                datasets: [{
+                    data: severityData,
+                    backgroundColor: severityColors,
+                    borderWidth: 0,
+                    hoverOffset: 10
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '70%',
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        padding: 10,
+                        cornerRadius: 6,
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.label}: ${context.raw}%`;
+                            }
+                        }
+                    }
+                },
+                animation: {
+                    animateRotate: true,
+                    animateScale: true,
+                    duration: 1000,
+                    easing: 'easeOutQuart'
+                }
+            }
+        });
+        
+        // Create custom legend
+        const legendContainer = document.getElementById('severityLegend');
+        if (legendContainer) {
+            severityLabels.forEach((label, index) => {
+                const legendItem = document.createElement('div');
+                legendItem.className = 'legend-item';
+                
+                const colorBox = document.createElement('span');
+                colorBox.className = 'legend-color';
+                colorBox.style.backgroundColor = severityColors[index];
+                
+                const labelText = document.createElement('span');
+                labelText.textContent = `${label}: ${severityData[index]}%`;
+                
+                legendItem.appendChild(colorBox);
+                legendItem.appendChild(labelText);
+                legendContainer.appendChild(legendItem);
+            });
+        }
+    }
+
+    // Treatment Effectiveness Chart (Bar Chart)
+    const ctx3 = document.getElementById('treatmentChart')?.getContext('2d');
+    if (ctx3) {
+        new Chart(ctx3, {
+            type: 'bar',
+            data: {
+                labels: ['Fungicide', 'Organic', 'Cultural', 'Biological'],
+                datasets: [{
+                    label: 'Effectiveness (%)',
+                    data: [75, 50, 85, 40],
+                    backgroundColor: [
+                        'rgba(76, 175, 80, 0.8)',
+                        'rgba(76, 175, 80, 0.7)',
+                        'rgba(76, 175, 80, 0.9)',
+                        'rgba(76, 175, 80, 0.6)'
+                    ],
+                    borderWidth: 0,
+                    borderRadius: 6,
+                    hoverBackgroundColor: '#4caf50'
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    y: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        padding: 10,
+                        cornerRadius: 6,
+                        callbacks: {
+                            label: function(context) {
+                                return `Effectiveness: ${context.raw}%`;
+                            }
+                        }
+                    }
+                },
+                animation: {
+                    duration: 1000,
+                    easing: 'easeOutQuart'
                 }
             }
         });
     }
 }
-window.scrollTo(0, 0);  // Ensure the page starts at the top   
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    createCharts();
+    setupNavigation();
+});
+
+function setupNavigation() {
+    const overviewTab = document.querySelector('nav ul li:first-child');
+    const scanHistoryTab = document.querySelector('nav ul li:nth-child(2)');
+    const overviewContent = document.querySelector('.stats').parentElement;
+    const scanHistoryContent = document.querySelector('.scan-history-view');
+    
+    // Initial state
+    overviewTab.classList.add('active');
+    scanHistoryTab.classList.remove('active');
+    overviewContent.style.display = 'block';
+    scanHistoryContent.style.display = 'none';
+    
+    // Click handlers
+    overviewTab.addEventListener('click', function() {
+        overviewTab.classList.add('active');
+        scanHistoryTab.classList.remove('active');
+        overviewContent.style.display = 'block';
+        scanHistoryContent.style.display = 'none';
+    });
+    
+    scanHistoryTab.addEventListener('click', function() {
+        scanHistoryTab.classList.add('active');
+        overviewTab.classList.remove('active');
+        scanHistoryContent.style.display = 'block';
+        overviewContent.style.display = 'none';
+    });
+}
