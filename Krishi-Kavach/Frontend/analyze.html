@@ -35,10 +35,22 @@
             
             <div class="button-group">
                 <button class="upload-btn">📤 Upload Image</button>
-                <button class="photo-btn">📷 Take Photo</button>
+                <button class="photo-btn" id="takepic">📷 Take Photo</button>
+              
+              
             </div>
-        </div>
+            </div>
+        
+        <video id="video" width="640" height="480" autoplay display="block" style="margin-top:10px; position:absolute "></video>
+        <canvas id="canvas" width="640" height="480" style="display:none"></canvas>
+        
+        <div style = "display:flex; flex-direction:coloumn; justify-content:center; gap:10px">
+        <button id="capture" style = "visibility: hidden;margin-top:15px; background-color:#28a745 ; font-size: large;border-radius: 5px; color:white "> Capture image</button>
+        <button class="retake" style="display:none; margin-top:15px; background-color:#28a745 ; font-size: large;border-radius: 5px;color:white"> Retake Photo</button>
+    </div>      
     </div>
+
+    
 
     <!-- tips -->
      <section>
