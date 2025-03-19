@@ -1,0 +1,251 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    justify-content: end;
+    font-size: 18px;
+    padding-top: 7px;
+    
+}
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4fbf1;
+    
+}
+
+/* navbar */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensures logo is left, and nav items are right */
+    gap: 10px;
+   
+    padding: 10px 40px;
+    background-color: #f9fdf8;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    width: 95%;  /* Ensures full width */
+    top: 0;       /* Fixes it at the top */
+    left: 0;
+    z-index: 100
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-right: 500px;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+    padding: 10px;
+    width: 55px;
+}
+
+.logo span {
+    font-size: 20px;
+    font-weight: bold;
+    color: #222;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #444;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.nav-item.active {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.nav-item.active::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: #28a745;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.scan-btn {
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.scan-btn:hover {
+    background-color: #23963b;
+}
+
+
+a:hover {
+    
+   
+    
+  
+    color: #23963b;
+    
+}
+a{
+    text-decoration: none;
+    color: green;
+   
+    
+}
+#scan {
+    background-color: aquamarine;
+    border-radius: 15px;
+    font-size: 18px;
+}
+
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 90px;
+}
+
+h1 {
+    font-size: 2em;
+    color: #222;
+    
+}
+
+p {
+    color: #555;
+}
+
+.upload-box {
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 30px;
+    background-color: white;
+    margin-top: 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.upload-icon img {
+    width: 180px;
+    height: 90px;
+    margin-left:10%;
+}
+
+.upload-text {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.upload-instruction {
+    color: #777;
+}
+
+.button-group {
+    margin-top: 20px;
+}
+
+.upload-btn, .photo-btn {
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.upload-btn {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.photo-btn {
+    background-color: #28a745;
+    color: white;
+}
+/* tips */
+.tips-container {
+    max-width: 1100px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(4, 4, 4, 0.5);
+    margin: 0 auto;
+    text-align: left;
+    height: fit-content;
+    opacity: 80%;
+    
+}
+
+h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+
+.tips {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+}
+
+.tip {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    margin: 10px;
+}
+
+.tip-number {
+    width: 35px;
+    height: 35px;
+    background: #eaf3e6;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.tip-content {
+    flex: 1;
+    
+}
+
+
+#tips-text {
+    padding-left: 20px;
+}

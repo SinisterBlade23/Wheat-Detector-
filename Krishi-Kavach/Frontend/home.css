@@ -1,0 +1,346 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4fbf1;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Hero Section */
+.hero {
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Logo */
+.hero-logo {
+    width: 100px;
+    margin-bottom: 15px;
+}
+
+/* Tagline */
+.tagline {
+    display: inline-flex;
+    align-items: center;
+    background: #eaf6e9;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #28a745;
+    
+}
+
+.tagline img {
+    width: 20px;
+    margin-right: 8px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Heading */
+.hero h1 {
+    font-size: 54px;
+    font-weight:700;
+    color: #222;
+    margin: 20px 0;
+    -webkit-text-stroke: 0.5px black;
+}
+
+/* Description */
+.hero p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+.krishi {
+    display: flex;
+    flex-direction:column;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+ 
+}
+/* CTA Buttons */
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.scan-btn, .dashboard-btn {
+    font-size: 16px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.scan-btn {
+    background-color: #28a745;
+    color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.scan-btn:hover {
+    background-color: #23963b;
+}
+
+.dashboard-btn {
+    background-color: #f0f0f0;
+    color: #333;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .scan-btn, .dashboard-btn {
+        width: 100%;
+    }
+}
+
+/* features */
+
+/* Heading */
+.features h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+/* Subtext */
+.subtext {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Feature Cards Container */
+.feature-cards {
+    display: flex;
+    justify-content: space-around;
+    gap: 1px;
+    margin-top: 40px;
+}
+
+/* Individual Feature Card */
+.feature-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 280px;
+    max-width: 320px;
+    text-align: left;
+}
+
+/* Feature Icon Box */
+.icon-box {
+   
+    border-radius: 10px;
+    display: inline-block;
+    margin-right: 30px;
+    
+}
+
+.icon-box img {
+    width: 130px;
+    height: 70px;
+
+
+}
+
+/* Feature Title */
+.feature-card h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 15px 0 10px;
+    color: #222;
+}
+
+/* Feature Description */
+.feature-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .feature-cards {
+        flex-direction: column;
+        align-items: center;
+        gap:40px;
+    }
+}
+
+/* working */
+.container {
+    max-width: fit-content;
+    margin: 30px;
+    padding: 80px 20px;
+}
+.container h2 {
+    font-size: 34px;
+    font-weight:700;
+    color: #222;
+    -webkit-text-stroke: 0.5px #222;
+}
+p.subtitle {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 40px;
+}
+.steps {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    gap: 10px;
+}
+.step {
+    /* background: white; */
+    padding: 20px;
+    border-radius: 10px;
+    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
+    flex: 1;
+}
+.step-circle {
+    width: 65px;
+    height: 65px;
+    background-color: #28a745;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: auto;
+    margin-bottom: 35px;
+}
+.step h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+.step p {
+    font-size: 16px;
+    color: #666;
+    padding: 0 10px;
+}
+hr{
+    width: 100%;
+    border: 1.2px solid #ddd;
+    margin-bottom: 20px;
+}
+
+/* ready to protect ur crops */
+.readyprotection{
+    display: flex;
+    
+    justify-content: center;
+    
+}
+.cta-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #dcf4d3;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1100px;
+    width: 95%;
+    margin-bottom: 80px;
+    height: 410px;
+}
+.cta-text {
+    flex: 1;
+   margin-left: 30px;
+   
+}
+.cta-text h2 {
+    font-size: 31px;
+    font-weight: 100px;
+    color: #222;
+    align-items: left;
+    text-align: left;
+
+}
+.cta-text p {
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0 20px;
+    text-align: left;
+}
+.cta-button {
+    display: flex;
+    background-color: #28a745;
+    color: white;
+    margin-top: 40px;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: 0.3s ease;
+    justify-content: start;
+    width:fit-content
+   
+}
+.cta-button:hover {
+    background-color: #218838;
+}
+.cta-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    height: 350px;
+
+    
+}
+.cta-image img {
+    width: 400px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-right: 30px;
+}
+@media (max-width: 768px) {
+    .cta-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+    .cta-text {
+        margin-bottom: 20px;
+    }
+    .cta-image {
+        justify-content: center;
+    }
+    .cta-image img {
+        width: 80%;
+    }
+}
