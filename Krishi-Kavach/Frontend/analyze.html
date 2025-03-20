@@ -3,30 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analyze Crop</title>
+    <title>Analyze</title>
     <link rel="stylesheet" href="analyze.css"> 
+    <link rel="shortcut icon" href="Krishi.jpg" type="image/x-icon">
 </head>
 <body>
+    
     <nav class="navbar">
         <div class="logo">
-            <img src="Krishi.jpg" alt="Logo">
+            <img src="Krishi.jpg" alt="Logo" >
             <span>Krishi-Kavach</span>
         </div>
         <ul class="nav-links">
             <li><a href="home.html" class="nav-item">Home</a></li>
-            <li><a href="analyse.html" class="nav-item active">Analyze</a></li>
+            <li><a href="analyze.html" class="nav-item active">Analyze</a></li>
             <li><a href="dashboard.html" class="nav-item">Dashboard</a></li>
         </ul>
         <button class="scan-btn">Scan Now</button>
     </nav>
-    
+   <!-- upload-box -->
     <div class="container">
         <h1>Analyze Your Crop</h1>
         <p>Upload a photo of your plant to identify diseases and get treatment recommendations.</p>
         
         <div class="upload-box">
             <div class="upload-icon">
-                <img src="upload.png" alt="Upload Icon">
                 <img src="upload.png" alt="Upload Icon">
             </div>
             <p class="upload-text">Upload crop image</p>
@@ -40,21 +41,118 @@
                 <button class="photo-btn" id="takepic">📷 Take Photo</button>
             </div>
         </div>
-        </div>
         
-        <video id="video" width="640" height="480" autoplay style="display:none; margin-top:10px;"></video>
+        <video id="video" width="640" height="480" autoplay style="margin-top:10px; position:absolute; display:none;"></video>
         <canvas id="canvas" width="640" height="480" style="display:none"></canvas>
         
         <div style="display:flex; flex-direction:column; justify-content:center; gap:10px">
-            <button id="capture" style="visibility:hidden; margin-top:15px; background-color:#28a745; font-size:large; border-radius:5px; color:white">Capture Image</button>
-            <button class="retake" style="display:none; margin-top:15px; background-color:#28a745; font-size:large; border-radius:5px; color:white">Retake Photo</button>
+            <button id="capture" style="visibility: hidden; margin-top:15px; background-color:#28a745; font-size: large; border-radius: 5px; color:white">Capture image</button>
+            <button class="retake" style="display:none; margin-top:15px; background-color:#28a745; font-size: large; border-radius: 5px; color:white">Retake Photo</button>
+        </div>      
+    </div>
+
+    <!-- Analysis Results Section (Hidden by Default) -->
+    <div class="analysis-container" id="analysisResults">
+        <div class="analysis-image-container">
+            <img id="analyzedImage" class="analysis-image" src="" alt="Analyzed crop">
         </div>
         
-        <!-- Disease Prediction Section -->
-        <div id="disease-result" class="disease-container">
-            <h2>Predicted Disease: <span id="disease-name">Loading...</span></h2>
+        <div class="analysis-results">
+            <div class="result-header">
+                <h2 id="analysisTitle">Analysis Results</h2>
+            </div>
+            
+            <div class="disease-section">
+                <div class="disease-header">
+                    <h3 id="diseaseName">Leaf Spot</h3>
+                    <div class="disease-meta">
+                        <span id="analysisDate" class="result-date">3/20/2025</span>
+                    </div>
+                </div>
+                <div class="disease-info">
+                    <span class="severity-badge low-severity">Low Severity</span>
+                    <span class="confidence">Confidence: 78.0%</span>
+                </div>
+                <p id="diseaseDescription" class="disease-description">
+                    Leaf spot is a common term for various fungal, bacterial, and viral diseases that cause 
+                    spots on leaves. Most leaf spot diseases are caused by fungi that survive in fallen 
+                    infected leaves and plant debris.
+                </p>
+            </div>
+            
+            <div class="dropdown-section">
+                <div class="dropdown-header" onclick="toggleDropdown('treatmentsDropdown')">
+                    <h3>Recommended Treatments</h3>
+                    <span class="dropdown-icon">▼</span>
+                </div>
+                <div id="treatmentsDropdown" class="dropdown-content">
+                    <ul id="treatmentsList">
+                        <li>Apply fungicides containing chlorothalonil, mancozeb, or copper-based compounds</li>
+                        <li>Remove and destroy infected plant parts to reduce spread</li>
+                        <li>Ensure proper spacing between plants to improve air circulation</li>
+                        <li>Apply treatments early in the morning so leaves can dry during the day</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="dropdown-section">
+                <div class="dropdown-header" onclick="toggleDropdown('preventiveDropdown')">
+                    <h3>Preventive Measures</h3>
+                    <span class="dropdown-icon">▼</span>
+                </div>
+                <div id="preventiveDropdown" class="dropdown-content">
+                    <ul id="preventiveList">
+                        <li>Practice crop rotation to prevent buildup of disease organisms</li>
+                        <li>Use disease-resistant wheat varieties when available</li>
+                        <li>Ensure proper field drainage to reduce humidity</li>
+                        <li>Maintain balanced soil fertility - avoid excessive nitrogen</li>
+                        <li>Clean equipment between fields to prevent spreading disease</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="action-btn save-btn" onclick="saveToHistory()">
+                    <i class="icon-save"></i> Save to History
+                </button>
+                <button class="action-btn download-btn" onclick="downloadReport()">
+                    <i class="icon-download"></i> Download Report
+                </button>
+            </div>
         </div>
     </div>
+
+    <!-- tips -->
+    <section>
+        <div class="tips-container">
+            <h2 id="tips-text">Tips for Better Analysis</h2>
+            <div class="tips">
+                <div class="tip">
+                    <div class="tip-number">1</div>
+                    <div class="tip-content">
+                        <strong>Good Lighting</strong>
+                        <p>Take photos in natural daylight. Avoid shadows or strong direct sunlight.</p>
+                    </div>
+                </div>
+
+                <div class="tip">
+                    <div class="tip-number">2</div>
+                    <div class="tip-content">
+                        <strong>Clear Focus</strong>
+                        <p>Ensure the affected plant part is clearly visible and in focus.</p>
+                    </div>
+                </div>
+
+                <div class="tip">
+                    <div class="tip-number">3</div>
+                    <div class="tip-content">
+                        <strong>Multiple Angles</strong>
+                        <p>Take photos from different angles for more accurate diagnosis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <script src="analyze.js"></script>
 </body>
