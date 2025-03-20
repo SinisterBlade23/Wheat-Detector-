@@ -3,33 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analyze</title>
+    <title>Analyze Crop</title>
     <link rel="stylesheet" href="analyze.css"> 
-    <link rel="shortcut icon" href="Krishi.jpg" type="image/x-icon">
-
 </head>
 <body>
-    
     <nav class="navbar">
         <div class="logo">
-            <img src="Krishi.jpg" alt="Logo" >
+            <img src="Krishi.jpg" alt="Logo">
             <span>Krishi-Kavach</span>
         </div>
         <ul class="nav-links">
             <li><a href="home.html" class="nav-item">Home</a></li>
-            <li><a href="analyze.html" class="nav-item active">Analyze</a></li>
+            <li><a href="analyse.html" class="nav-item active">Analyze</a></li>
             <li><a href="dashboard.html" class="nav-item">Dashboard</a></li>
         </ul>
         <button class="scan-btn">Scan Now</button>
     </nav>
-   <!-- upload-box -->
+    
     <div class="container">
         <h1>Analyze Your Crop</h1>
         <p>Upload a photo of your plant to identify diseases and get treatment recommendations.</p>
         
         <div class="upload-box">
             <div class="upload-icon">
-                <img src= "upload.png" alt="Upload Icon">
+                <img src="upload.png" alt="Upload Icon">
             </div>
             <p class="upload-text">Upload crop image</p>
             <p class="upload-instruction">Drag and drop an image, or click to browse your files</p>
@@ -37,56 +34,23 @@
             <div class="button-group">
                 <button class="upload-btn">📤 Upload Image</button>
                 <button class="photo-btn" id="takepic">📷 Take Photo</button>
-              
-              
-            </div>
-            </div>
-        
-        <video id="video" width="640" height="480" autoplay display="block" style="margin-top:10px; position:absolute "></video>
-        <canvas id="canvas" width="640" height="480" style="display:none"></canvas>
-        
-        <div style = "display:flex; flex-direction:coloumn; justify-content:center; gap:10px">
-        <button id="capture" style = "visibility: hidden;margin-top:15px; background-color:#28a745 ; font-size: large;border-radius: 5px; color:white "> Capture image</button>
-        <button class="retake" style="display:none; margin-top:15px; background-color:#28a745 ; font-size: large;border-radius: 5px;color:white"> Retake Photo</button>
-    </div>      
-    </div>
-
-    
-
-    <!-- tips -->
-     <section>
-     
-    <div class="tips-container">
-        <h2 id="tips-text">Tips for Better Analysis</h2>
-        <div class="tips">
-            <div class="tip">
-                <div class="tip-number">1</div>
-                <div class="tip-content">
-                    <strong>Good Lighting</strong>
-                    <p>Take photos in natural daylight. Avoid shadows or strong direct sunlight.</p>
-                </div>
-            </div>
-
-            <div class="tip">
-                <div class="tip-number">2</div>
-                <div class="tip-content">
-                    <strong>Clear Focus</strong>
-                    <p>Ensure the affected plant part is clearly visible and in focus.</p>
-                </div>
-            </div>
-
-            <div class="tip">
-                <div class="tip-number">3</div>
-                <div class="tip-content">
-                    <strong>Multiple Angles</strong>
-                    <p>Take photos from different angles for more accurate diagnosis.</p>
-                </div>
             </div>
         </div>
+        
+        <video id="video" width="640" height="480" autoplay style="display:none; margin-top:10px;"></video>
+        <canvas id="canvas" width="640" height="480" style="display:none"></canvas>
+        
+        <div style="display:flex; flex-direction:column; justify-content:center; gap:10px">
+            <button id="capture" style="visibility:hidden; margin-top:15px; background-color:#28a745; font-size:large; border-radius:5px; color:white">Capture Image</button>
+            <button class="retake" style="display:none; margin-top:15px; background-color:#28a745; font-size:large; border-radius:5px; color:white">Retake Photo</button>
+        </div>
+        
+        <!-- Disease Prediction Section -->
+        <div id="disease-result" class="disease-container">
+            <h2>Predicted Disease: <span id="disease-name">Loading...</span></h2>
+        </div>
     </div>
-
-   
-      <script src="analyze.js"></script>
-     </section>
+    
+    <script src="analyze.js"></script>
 </body>
 </html>
