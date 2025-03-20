@@ -7,6 +7,30 @@ body {
     text-align: center;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  /* Optional: For all elements to prevent horizontal overflow */
+  /* * {
+    max-width: 100%;
+    box-sizing: border-box;
+  } */
+  
+  /* For browsers that support these properties */
+  html, body {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  /* For Chrome, Safari and Opera */
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+
 /* Hero Section */
 .hero {
     padding: 60px 20px;
