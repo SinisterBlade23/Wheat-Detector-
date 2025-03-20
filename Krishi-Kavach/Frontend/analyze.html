@@ -27,14 +27,19 @@
         <div class="upload-box">
             <div class="upload-icon">
                 <img src="upload.png" alt="Upload Icon">
+                <img src="upload.png" alt="Upload Icon">
             </div>
             <p class="upload-text">Upload crop image</p>
             <p class="upload-instruction">Drag and drop an image, or click to browse your files</p>
             
             <div class="button-group">
-                <button class="upload-btn">📤 Upload Image</button>
+                <!-- Add a hidden file input -->
+                <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                <!-- Connect button to the hidden input -->
+                <button class="upload-btn" onclick="document.getElementById('fileInput').click()">📤 Upload Image</button>
                 <button class="photo-btn" id="takepic">📷 Take Photo</button>
             </div>
+        </div>
         </div>
         
         <video id="video" width="640" height="480" autoplay style="display:none; margin-top:10px;"></video>

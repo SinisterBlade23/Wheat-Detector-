@@ -252,3 +252,193 @@ h2 {
 
 
 
+
+/* test  */
+        /* Analysis Results Styling */
+.analysis-container {
+    /* display: none; */
+    max-width: 800px;
+    margin: 30px auto;
+    font-family: Arial, sans-serif;
+}
+
+.analysis-image-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.analysis-image {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.analysis-results {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.result-header {
+    padding: 15px 20px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #eee;
+}
+
+.result-header h2 {
+    margin: 0;
+    color: #333;
+    font-size: 22px;
+}
+
+.result-date {
+    color: #666;
+    font-size: 14px;
+    float: right;
+    margin-top: 5px;
+}
+
+.disease-section {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.disease-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.disease-header h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.disease-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.severity-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.severity-badge.low-severity {
+    background-color: #e7f5e7;
+    color: #28a745;
+}
+
+.severity-badge.medium-severity {
+    background-color: #fff3cd;
+    color: #ffc107;
+}
+
+.severity-badge.high-severity {
+    background-color: #f8d7da;
+    color: #dc3545;
+}
+
+.confidence-score {
+    font-size: 14px;
+    color: #666;
+}
+
+.disease-description {
+    margin: 0;
+    line-height: 1.5;
+    color: #555;
+}
+
+.dropdown-section {
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-header {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.dropdown-header:hover {
+    background-color: #f5f5f5;
+}
+
+.dropdown-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.dropdown-icon {
+    font-size: 12px;
+    color: #666;
+    transition: transform 0.3s;
+}
+
+.dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.dropdown-content.active {
+    max-height: 500px;
+}
+
+.dropdown-content ul {
+    margin: 0;
+    padding: 10px 20px 20px 40px;
+}
+
+.dropdown-content li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.action-buttons {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.action-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.save-btn {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.download-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.icon-save, .icon-download {
+    font-size: 16px;
+}
+
+/* test end  */
+
+
