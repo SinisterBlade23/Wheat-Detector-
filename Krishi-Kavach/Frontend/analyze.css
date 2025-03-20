@@ -203,7 +203,7 @@ p {
     text-align: left;
     height: fit-content;
     opacity: 80%;
-    
+    position: relative;
 }
 
 h2 {
