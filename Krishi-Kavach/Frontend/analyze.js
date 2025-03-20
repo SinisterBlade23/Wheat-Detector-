@@ -90,17 +90,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 // Generate confidence and severity
-                const { confidence, severityLevel } = generateConfidence();
+                //const { confidence, severityLevel } = generateConfidence();
 
                 // Update UI with analysis data
                 elements.diseaseName.textContent = data.disease || "Unknown Disease";
-                elements.confidence.textContent = `Confidence: ${confidence}%`;
-                elements.severityBadge.textContent = severityLevel;
+                //elements.confidence.textContent = `Confidence: ${confidence}%`;
+                //elements.severityBadge.textContent = severityLevel;
                 elements.diseaseDescription.textContent = data.definition || "No details available.";
 
                 // Show severity only when disease details appear
-                elements.confidence.style.display = "inline-block";
-                elements.severityBadge.style.display = "inline-block";
+                //elements.confidence.style.display = "inline-block";
+                //elements.severityBadge.style.display = "inline-block";
 
                 // Populate treatments
                 elements.treatmentsList.innerHTML = "";
