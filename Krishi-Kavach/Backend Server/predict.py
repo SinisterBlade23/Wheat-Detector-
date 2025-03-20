@@ -21,7 +21,8 @@ except Exception as e:
 # Ensure an image path is provided
 if len(sys.argv) < 2:
     print("⚠️ No image path provided. Using default test image.")
-    img_path = r"E:\Wheat-Detector-\Krishi-Kavach\Backend Server\uploads\tan_spot_94.png"
+    img_path = os.path.join(os.path.dirname(__file__), r'uploads\tan_spot_94.png')
+    print(img_path)
 else:
     img_path = sys.argv[1]
 
