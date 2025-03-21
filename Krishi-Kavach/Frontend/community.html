@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="community.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="loading-overlay">
+        <div class="loader"></div>
+      </div>
+<!-- navar  -->
+      <nav class="navbar">
+        <div class="logo">
+            <img src="Krishi.jpg" alt="Logo">
+            <span>Krishi-Kavach</span>
+        </div>
+        <div class="menu-toggle">
+            <div class="hamburger"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html" class="nav-item">Home</a></li>
+            <li><a href="analyze.html" class="nav-item ">Analyze</a></li>
+            <li><a href="dashboard.html" class="nav-item">Dashboard</a></li>
+            <li><a href="community.html" class="nav-item active">Community</a></li>
+        </ul>
+        <button class="scan-btn"><a href="analyze.html" class="scan-btn"> Scan Now</a></button>
+    </nav>
+
+    <div class="community-section">
+        <h1>Krishi Kavach Community Events</h1>
+        
+        <div class="cards-container">
+            <button class="scroll-btn scroll-left"></button>
+            
+            <div class="card" data-tilt>
+                <div class="card-date">March 15, 2025</div>
+                <div class="card-content">
+                    <h2 class="card-title">Sustainable Farming Workshop</h2>
+                    <div class="card-location">Punjab Agricultural University, Ludhiana</div>
+                    <p class="card-description">Join expert farmers and agricultural scientists for a hands-on workshop on sustainable farming practices and techniques to improve crop yield while preserving soil health.</p>
+                </div>
+                <button class="card-action"></button>
+                <div class="card-shine"></div>
+            </div>
+    
+            <div class="card" data-tilt>
+                <div class="card-date">March 20, 2025</div>
+                <div class="card-content">
+                    <h2 class="card-title">Organic Certification Seminar</h2>
+                    <div class="card-location">IARI Campus, New Delhi</div>
+                    <p class="card-description">Learn about the process of obtaining organic certification for your farm produce and the benefits of transitioning to organic farming methods.</p>
+                </div>
+                <button class="card-action"></button>
+                <div class="card-shine"></div>
+            </div>
+    
+            <div class="card" data-tilt>
+                <div class="card-date">April 5, 2025</div>
+                <div class="card-content">
+                    <h2 class="card-title">Agricultural Tech Expo</h2>
+                    <div class="card-location">Bengaluru International Exhibition Centre</div>
+                    <p class="card-description">Explore the latest agricultural technologies, machinery, and innovations designed to modernize farming practices and increase efficiency.</p>
+                </div>
+                <button class="card-action"></button>
+                <div class="card-shine"></div>
+            </div>
+    
+            <!-- <div class="card" data-tilt>
+                <div class="card-date">April 12, 2025</div>
+                <div class="card-content">
+                    <h2 class="card-title">Water Conservation Summit</h2>
+                    <div class="card-location">Gujarat Agricultural University, Anand</div>
+                    <p class="card-description">Discover effective water management strategies for agriculture in water-scarce regions and learn about government subsidies for irrigation systems.</p>
+                </div>
+                <button class="card-action"></button>
+                <div class="card-shine"></div>
+            </div> -->
+            
+            <button class="scroll-btn scroll-right"></button>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+
+    <script src="community.js"></script>
+</body>
+</html>

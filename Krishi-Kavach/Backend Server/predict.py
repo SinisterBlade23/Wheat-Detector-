@@ -42,6 +42,7 @@ def predict_image(img_path):
         # Make prediction
         preds = model.predict(x,verbose=0)
         class_idx = np.argmax(preds[0])
+        confidence = float(preds[0][class_idx]) * 100  # Convert to percentage   changes i am making
 
         # Define class labels
         class_labels = [
@@ -53,8 +54,7 @@ def predict_image(img_path):
         predicted_class = class_labels[class_idx]
 
         # Return JSON output
-        return json.dumps({"disease": predicted_class})
-
+        return json.dumps({"disease": predicted_class, "confidence": confidence})
     except Exception as e:
         return json.dumps({"error": f"Prediction error: {str(e)}"})
 

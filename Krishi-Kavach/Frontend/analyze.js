@@ -93,14 +93,32 @@ document.addEventListener('DOMContentLoaded', function () {
                 //const { confidence, severityLevel } = generateConfidence();
 
                 // Update UI with analysis data
-                elements.diseaseName.textContent = data.disease || "Unknown Disease";
-                //elements.confidence.textContent = `Confidence: ${confidence}%`;
-                //elements.severityBadge.textContent = severityLevel;
-                elements.diseaseDescription.textContent = data.definition || "No details available.";
 
-                // Show severity only when disease details appear
-                //elements.confidence.style.display = "inline-block";
-                //elements.severityBadge.style.display = "inline-block";
+
+                // confidence start 
+                elements.diseaseName.textContent = data.disease || "Unknown Disease";
+                elements.confidence.textContent = `Confidence: ${data.confidence.toFixed(2)}%`;
+                elements.confidence.style.display = "inline-block";
+                
+                // Set severity based on confidence
+                let severityLevel, severityClass;
+                if (data.confidence >= 96) {
+                  severityLevel = "High Severity";
+                  severityClass = "high-severity";
+                } else if (data.confidence >= 86) {
+                  severityLevel = "Medium Severity";
+                  severityClass = "medium-severity";
+                } else {
+                  severityLevel = "Low Severity";
+                  severityClass = "low-severity";
+                }
+                elements.severityBadge.textContent = severityLevel;
+                elements.severityBadge.className = `severity-badge ${severityClass}`;
+                elements.severityBadge.style.display = "inline-block";
+             
+                
+
+                // confidence end 
 
                 // Populate treatments
                 elements.treatmentsList.innerHTML = "";

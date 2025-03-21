@@ -1,0 +1,616 @@
+/* Keep your existing CSS for navbar and general settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+na i dont like css make it more better dont change the bg color of page and make changes in this existing css without hindering the changes in my navbar
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+:root {
+--primary-color: #4caf50;
+--primary-dark: #2e7d32;
+--primary-light: #a5d6a7;
+--accent-color: #81c784;
+--text-primary: #333;
+--text-secondary: #666;
+--background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+--card-bg: rgba(255, 255, 255, 0.85);
+--shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+--border-radius: 16px;
+--transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+--font-primary: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+/* Fix mobile menu toggle */
+.menu-toggle {
+display: none;
+cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+.menu-toggle {
+display: block;
+}
+
+}
+
+/* This CSS will hide the horizontal scrollbar */
+body {
+margin: 0;
+padding: 0;
+overflow-x: hidden;
+}
+
+/* Optional: For all elements to prevent horizontal overflow */
+* {
+max-width: 100%;
+box-sizing: border-box;
+}
+
+/* For browsers that support these properties */
+html, body {
+-ms-overflow-style: none; /* IE and Edge */
+scrollbar-width: none; /* Firefox */
+}
+
+/* For Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+display: none;
+}
+
+
+/* navbar */
+
+.navbar {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 10px 20px;
+background-color: #f9fdf8;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+position: fixed;
+width: 100%;
+top: 0;
+left: 0;
+z-index: 100;
+box-sizing: border-box;
+height: 80px; /* Fixed height */
+padding-top: 7px;
+font-size: 18px;
+gap: 10px;
+}
+
+
+.logo {
+display: flex;
+align-items: center;
+justify-content: start;
+margin-right: 500px;
+}
+
+.logo img {
+height: 50px;
+margin-right: 10px;
+padding: 10px;
+width: 55px;
+}
+
+.logo span {
+font-size: 26px;
+font-weight: bold;
+color: #222;
+}
+
+.nav-links {
+list-style: none;
+display: flex;
+/* gap: 25 px; */
+padding-top: 60px;
+}
+
+.nav-links li {
+display: inline;
+line-height: 2;
+}
+
+.nav-item {
+text-decoration: none;
+color: #444;
+font-size: 16px;
+font-weight: 500;
+position: relative;
+/* padding-bottom: 5px; */
+font-weight: bold;
+padding-top: 10px;
+}
+
+.nav-item.active {
+color: #28a745;
+font-weight: bold;
+}
+
+.scan-btn {
+background-color: #28a745;
+color: white;
+font-size: 16px;
+padding: 10px 20px;
+border: none;
+border-radius: 25px;
+cursor: pointer;
+font-weight: bold;
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.scan-btn:hover {
+/* background-color: #23963b; */
+}
+
+/* Mobile responsive styles */
+@media screen and (max-width: 768px) {
+.navbar {
+padding: 10px 15px;
+height: 50px;
+}
+
+.logo img {
+height: 30px;
+}
+
+.logo span {
+font-size: 16px;
+}
+}
+
+
+/* navbar-end */
+
+
+/* Base Styles with Advanced Animation */
+body {
+font-family: var(--font-primary);
+background: var(--background);
+background-size: 400% 400%;
+animation: gradientBG 15s ease infinite;
+margin: 0;
+padding: 20px;
+color: var(--text-primary);
+scroll-behavior: smooth;
+position: relative;
+overflow-x: hidden;
+min-height: 100vh;
+}
+
+@keyframes gradientBG {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}
+
+
+
+nav ul {
+list-style-type: none;
+padding: 0;
+display: flex;
+border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+margin: 0 0 40px 0;
+overflow: hidden;
+}
+
+nav ul li {
+padding: 16px 30px;
+cursor: pointer;
+font-size: 15px;
+color: var(--text-secondary);
+display: flex;
+align-items: center;
+transition: var(--transition);
+margin-right: 18px;
+border-radius: 12px 12px 0 0;
+position: relative;
+overflow: hidden;
+animation: fadeInStaggered 0.5s forwards;
+opacity: 0;
+font-weight: 500;
+}
+
+nav ul li:nth-child(1) { animation-delay: 1.2s; }
+nav ul li:nth-child(2) { animation-delay: 1.3s; }
+nav ul li:nth-child(3) { animation-delay: 1.4s; }
+nav ul li:nth-child(4) { animation-delay: 1.5s; }
+
+@keyframes fadeInStaggered {
+to {
+opacity: 1;
+}
+}
+
+nav ul li::before {
+content: '';
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 3px;
+background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+transform: translateY(3px);
+transition: transform 0.3s ease;
+}
+
+nav ul li:hover {
+color: var(--primary-color);
+background: rgba(76, 175, 80, 0.05);
+}
+
+nav ul li:hover::before {
+transform: translateY(0);
+}
+
+.active {
+color: var(--primary-color);
+font-weight: 600;
+}
+
+.active::before {
+transform: translateY(0);
+}
+
+
+
+
+
+
+:root {
+    --primary-color: #4caf50;
+    --primary-dark: #2e7d32;
+    --primary-light: #a5d6a7;
+    --accent-color: #81c784;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    --border-radius: 16px;
+    --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --font-primary: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Enhanced Community Events Section */
+.community-section {
+    margin-top: 100px;
+    padding: 40px 20px;
+}
+
+.community-section h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-dark);
+    margin-bottom: 40px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.community-section h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-light), var(--primary-dark));
+    border-radius: 2px;
+}
+
+.cards-container {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    padding: 20px 60px 40px;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    position: relative;
+    margin: 0 auto;
+    max-width: 1400px;
+}
+
+.cards-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Enhanced Card Design */
+.card {
+    position: relative;
+    min-width: 320px;
+    height: 280px;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0) 60%
+    );
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.card:hover {
+    transform: translateY(-15px) rotateX(5deg);
+    box-shadow: 0 25px 50px rgba(46, 125, 50, 0.2);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+/* Card Date Design */
+.card-date {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--primary-dark);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    letter-spacing: 0.5px;
+}
+
+/* Card Content Layout */
+.card-content {
+    position: relative;
+    padding: 25px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.card-title {
+    color: var(--primary-dark);
+    font-size: 1.4rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.card-location {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.card-location::before {
+    content: '📍';
+    margin-right: 5px;
+}
+
+.card-description {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+/* Enhanced 3D Effects */
+.card-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.05) 40%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0.05) 60%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.card:hover .card-shine {
+    opacity: 1;
+    animation: shine 1.5s infinite alternate;
+}
+
+@keyframes shine {
+    from {
+        background-position: -200% -200%;
+    }
+    to {
+        background-position: 200% 200%;
+    }
+}
+
+/* Card Border Effect */
+.card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--border-radius);
+    padding: 1px;
+    background: linear-gradient(
+        45deg,
+        transparent 40%,
+        rgba(76, 175, 80, 0.5) 45%,
+        rgba(76, 175, 80, 0.8) 50%,
+        rgba(76, 175, 80, 0.5) 55%,
+        transparent 60%
+    );
+    background-size: 300% 300%;
+    background-position: 0 0;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease, background-position 0.7s ease;
+}
+
+.card:hover::after {
+    opacity: 1;
+    animation: borderEffect 2s infinite alternate;
+}
+
+@keyframes borderEffect {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+/* Card Action Button */
+.card-action {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: translateY(60px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 3;
+}
+
+.card:hover .card-action {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.card-action::before {
+    content: '→';
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .community-section {
+        margin-top: 70px;
+    }
+    
+    .community-section h1 {
+        font-size: 2rem;
+    }
+    
+    .cards-container {
+        padding: 10px 5px 30px;
+        gap: 20px;
+    }
+    
+    .card {
+        min-width: 280px;
+        height: 260px;
+    }
+}
+
+/* Scroll Buttons for Card Container */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-btn:hover {
+    opacity: 1;
+}
+
+.scroll-left {
+    left: 10px;
+}
+
+.scroll-right {
+    right: 10px;
+}
+
+.scroll-btn::before {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.scroll-left::before {
+    content: '←';
+}
+
+.scroll-right::before {
+    content: '→';
+}
+
+/* Card Appear Animation */
+.card {
+    animation: cardAppear 0.5s ease forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+@keyframes cardAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
