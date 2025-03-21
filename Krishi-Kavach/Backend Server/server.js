@@ -73,7 +73,7 @@ app.post('/predict', upload.single('cropImage'), (req, res) => {
             res.json({
                 disease: diseaseDetails.name,
                 confidence: result.confidence || "--", // Confidence from model
-                definition: diseaseDetails.definition || "No definition available.",
+                definition: diseaseDetails.definition || "", // made changes 
                 treatments: diseaseDetails.recommended_treatments || ["No treatments available."],
                 preventiveMeasures: diseaseDetails.preventive_measures || ["No preventive measures available."],
                 imageUrl: `/uploads/${req.file.filename}`

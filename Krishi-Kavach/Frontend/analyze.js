@@ -35,24 +35,24 @@ document.addEventListener('DOMContentLoaded', function () {
     elements.analysisResults.style.display = 'none';
 
     // Function to generate confidence percentage (75% - 100%) and determine severity
-    function generateConfidence() {
-        const confidence = Math.floor(Math.random() * 26) + 75; // Random 75 - 100%
-        let severityLevel = "Low Severity";
-        let severityClass = "low-severity"; // Default class for styling
+    // function generateConfidence() {
+    //     const confidence = Math.floor(Math.random() * 26) + 75; // Random 75 - 100%
+    //     let severityLevel = "Low Severity";
+    //     let severityClass = "low-severity"; // Default class for styling
     
-        if (confidence >= 96) {
-            severityLevel = "High Severity";
-            severityClass = "high-severity"; // Apply high severity class (Red)
-        } else if (confidence >= 86) {
-            severityLevel = "Medium Severity";
-            severityClass = "medium-severity"; // Apply medium severity class (Yellow)
-        }
+    //     if (confidence >= 96) {
+    //         severityLevel = "High Severity";
+    //         severityClass = "high-severity"; // Apply high severity class (Red)
+    //     } else if (confidence >= 86) {
+    //         severityLevel = "Medium Severity";
+    //         severityClass = "medium-severity"; // Apply medium severity class (Yellow)
+    //     }
     
-        // Apply class instead of inline styles (better for maintainability)
-        elements.severityBadge.className = `severity-badge ${severityClass}`;
+    //     // Apply class instead of inline styles (better for maintainability)
+    //     elements.severityBadge.className = `severity-badge ${severityClass}`;
     
-        return { confidence, severityLevel };
-    }
+    //     return { confidence, severityLevel };
+    // }
     
 
     // Helper functions
@@ -75,6 +75,10 @@ document.addEventListener('DOMContentLoaded', function () {
             const formData = new FormData();
             formData.append('cropImage', file); // Ensure 'cropImage' matches backend
 
+            showLoader();
+
+            elements.diseaseDescription.textContent = "";  // 7:13
+
             console.log("📤 Sending image for analysis...");
             fetch('/predict', {
                 method: 'POST',
@@ -82,6 +86,8 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .then(response => response.json())
             .then(data => {
+
+                hideLoader();
                 console.log("✅ Received response:", data);
 
                 if (data.error) {
@@ -99,7 +105,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 elements.diseaseName.textContent = data.disease || "Unknown Disease";
                 elements.confidence.textContent = `Confidence: ${data.confidence.toFixed(2)}%`;
                 elements.confidence.style.display = "inline-block";
-                
+
+                elements.diseaseDescription.textContent = data.definition || "No description available.";
                 // Set severity based on confidence
                 let severityLevel, severityClass;
                 if (data.confidence >= 96) {
@@ -149,6 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             })
             .catch(error => {
+                hideLoader();
                 console.error('❌ Error:', error);
                 alert('❌ Error analyzing image.');
             });
@@ -234,4 +242,13 @@ function saveToHistory() {
 
 function downloadReport() {
     alert('📥 Downloading report...');
+}
+
+
+function showLoader() {
+    document.getElementById('loader').style.display = 'flex';
+}
+
+function hideLoader() {
+    document.getElementById('loader').style.display = 'none';
 }
