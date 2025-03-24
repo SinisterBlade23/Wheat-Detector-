@@ -1,4 +1,5 @@
 🌾 Krishi-Kavach: AI-Powered Crop Disease Detection
+
 Krishi-Kavach is a web-based application that utilizes AI-driven image analysis to detect crop diseases. Users can upload an image of their crop, and the system will predict the disease, provide a confidence score, and recommend treatments and preventive measures.
 
 🛠️ Tech Stack
